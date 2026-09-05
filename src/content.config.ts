@@ -17,6 +17,24 @@ const experiencesCollection = defineCollection({
   }),
 });
 
+
+const technologiesCollection = defineCollection({
+   loader: glob({
+    pattern: "**/*.md",
+    base: "src/content/technologies"
+  }),
+  schema: z.object({
+    name: z.string(),
+    icons: z.array(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+      })
+    ),
+  })
+});
+
 export const collections = {
   experiences: experiencesCollection,
+  technologies: technologiesCollection,
 };

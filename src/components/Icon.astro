@@ -1,0 +1,61 @@
+---
+import AstroIcon from "../components/icons/AstroIcon.astro";
+import CssIcon from "../components/icons/CssIcon.astro";
+import FastapiIcon from "../components/icons/FastapiIcon.astro";
+import GitIcon from "../components/icons/GitIcon.astro";
+import HtmlIcon from "../components/icons/HtmlIcon.astro";
+import JavascriptIcon from "../components/icons/JavascriptIcon.astro";
+import LaravelIcon from "../components/icons/LaravelIcon.astro";
+import MongodbIcon from "../components/icons/MongodbIcon.astro";
+import MysqlIcon from "../components/icons/MysqlIcon.astro";
+import PhpIcon from "../components/icons/PhpIcon.astro";
+import PostgresqlIcon from "../components/icons/PostgresqlIcon.astro";
+import PostmanIcon from "../components/icons/PostmanIcon.astro";
+import PowerbiIcon from "../components/icons/PowerbiIcon.astro";
+import PythonIcon from "../components/icons/PythonIcon.astro";
+import SqlServerIcon from "./icons/SqlServerIcon.astro";
+import TailwindcssIcon from "./icons/TailwindcssIcon.astro";
+import TypescriptIcon from "./icons/TypescriptIcon.astro";
+
+
+// Mapeas la clave con el componente correspondiente
+const ICONS = {
+    astro: AstroIcon,
+    css: CssIcon,
+    fastapi: FastapiIcon,
+    git: GitIcon,
+    html: HtmlIcon,
+    javascript: JavascriptIcon,
+    laravel: LaravelIcon,
+    mongodb: MongodbIcon,
+    mysql: MysqlIcon,
+    php: PhpIcon,
+    postgresql: PostgresqlIcon,
+    postman: PostmanIcon,
+    powerbi: PowerbiIcon,
+    python: PythonIcon,
+    sqlserver: SqlServerIcon,
+    tailwindcss: TailwindcssIcon,
+    typescript: TypescriptIcon,
+};
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+const IconComponent = ICONS[name as keyof typeof ICONS];
+---
+
+{
+  IconComponent ? (
+    <IconComponent class={className} />
+  ) : (
+    /* Comentario de JS corregido */
+    <span class={`inline-block border border-dashed border-gray-400 rounded p-1 text-xs ${className}`}>
+      {name}
+    </span>
+  )
+}

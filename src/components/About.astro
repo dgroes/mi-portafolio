@@ -1,17 +1,47 @@
 ---
 import SectionContainer from '../components/SectionContainer.astro';
+import Icon from "../components/Icon.astro";
+
+import { getCollection } from "astro:content";
+
+// Obtenemos la colección
+const technologies = await getCollection("technologies");
+const tools = technologies[0]?.data.icons ?? [];
+
+
+console.log(technologies);
+console.log(tools);
 ---
 
 <SectionContainer id="about" class="my-6">
 <h2 class="text-4xl sm:text-6xl font-bold mt-8 mb-3 flex gap-2">Sobre mí</h2>
   <p class="text-2xl opacity-75">
-    Titulado como <strong>Ingeniero en Informática</strong>, con experiencia en
-    gestión y desarrollo de proyectos. Manejo tango frontend como backend,
-    aplicando metodologías ágiles. Además con experiencia laboral en QA, lo que
-    aporta un aporte a la hora de seguir y mantener la calidad esperada durante
-    la fase de desarrollo.
+    Titulado como <strong>Ingeniero en Informática</strong>, cuento con experiencia en el desarrollo y gestión de proyectos de software. Manejo soluciones tanto Frontend como Backend aplicando metodologías ágiles, garantizando código mantenible y buenas prácticas en cada etapa del desarrollo.
     <br />
-    Durante el tiempo libre me gusta hacer música y leer, tratando de siempre agregar
-    lo aprendido al labito laboral.
+    En mi tiempo libre me apasiona crear música y leer, actividades que alimentan mi creatividad, disciplina y curiosidad por el aprendizaje continuo.
   </p>
+
+
+  <article class="mt-12">
+    <h3 class="text-3xl sm:text-5xl font-semibold mb-8">Herramientas</h3>
+    
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-6 max-w-5xl mx-auto">
+      {
+        tools.length > 0 ? (
+          tools.map((icon) => (
+            <div class="flex flex-col items-center gap-2 group" title={icon.name}>
+              <Icon 
+                name={icon.id} 
+                class="w-16 h-16 sm:w-20 sm:h-20 transition-transform group-hover:scale-110" 
+              />
+              {/* <span class="text-xs opacity-75 group-hover:opacity-100">{icon.name}</span> */}
+            </div>
+          ))
+        ) : (
+          <p>No se encontraron íconos 😞</p>
+        )
+      }
+    </div>
+  </article>
+  
 </SectionContainer>
