@@ -1,0 +1,117 @@
+---
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+import GitIcon from "../components/icons/GitIcon.astro";
+import SqlServerIcon from "../components/icons/SqlServerIcon.astro";
+import DotnetIcon from "../components/icons/DotnetIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import MysqlIcon from "../components/icons/MysqlIcon.astro";
+import PowerbiIcon from "../components/icons/PowerbiIcon.astro";
+/* import MysqlIcon from '../icons/MysqlIcon.astro';    
+import DotnetIcon from '../icons/DotnetIcon.astro'; */
+
+// Diccionario que vincula la clave del Markdown con el Componente Astro
+// Mapeo dinámico con tipado explícito
+const ICON_MAP: Record<string, (_props: Record<string, any>) => any> = {
+  git: GitIcon,
+  sqlserver: SqlServerIcon,
+  dotnet: DotnetIcon,
+  github: GithubIcon,
+  mysqli: MysqlIcon,
+  powerbi: PowerbiIcon,
+};
+
+type Experience = CollectionEntry<"experiences">;
+
+const experiences: Experience[] = (await getCollection("experiences")).sort(
+  (a: Experience, b: Experience) => a.data.id - b.data.id,
+);
+---
+
+<SectionContainer id="experiencia" class="py-12">
+  <h2 class="text-4xl sm:text-6xl font-bold mt-8 mb-3 flex gap-2">
+    Experiencia Laboral
+  </h2>
+
+  <div class="space-y-12">
+    {
+      experiences.map((experience: Experience) => (
+        <article class="ml-2 relative pb-8">
+          {/* Cabecera Empresa y Cargos */}
+          <div class="flex flex-wrap gap-3 items-center mb-2">
+            <a
+              href={experience.data.webPage}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-80 transition-opacity"
+            >
+              <h3 class="text-3xl sm:text-4xl font-semibold text-yellow-400">
+                {experience.data.company}
+              </h3>
+            </a>
+
+            <div class="flex flex-wrap gap-2">
+              {experience.data.position.map((pos: string) => (
+                <Badge>
+                  <span class="text-2xl p-2">{pos}</span>
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          <span class="text-lg text-slate-400 font-medium block mb-4">
+            {experience.data.starDate} - {experience.data.endDate ?? "Presente"}
+          </span>
+
+          {/* Funciones */}
+          <div class="mt-4">
+            <h4 class="text-xl font-semibold text-yellow-200 mb-2">
+              Funciones
+            </h4>
+            <ul class="space-y-2 text-amber-50">
+              {experience.data.duties.map((duty: string) => (
+                <li class="text-base sm:text-2xl flex gap-x-2 before:content-['—'] before:text-yellow-200">
+                  <span set:html={duty} />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Responsabilidades */}
+          <div class="mt-4">
+            <h4 class="text-xl font-semibold text-yellow-200 mb-2">
+              Responsabilidades
+            </h4>
+            <ul class="list-disc list-outside pl-5 space-y-1 text-amber-50">
+              {experience.data.responsibilities.map((resp: string) => (
+                <li class="text-base sm:text-lg">{resp}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Herramientas */}
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-yellow-200 mb-2">
+              Herramientas
+            </h4>
+            <div class="flex gap-3">
+              {experience.data.tools?.map((toolKey) => {
+                const IconComponent = ICON_MAP[toolKey];
+                return IconComponent ? (
+                  <div
+                    class="p-2 flex items-center justify-center"
+                    title={toolKey}
+                  >
+                    <IconComponent class="w-18 h-18" />
+                  </div>
+                ) : null;
+              })}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</SectionContainer>
