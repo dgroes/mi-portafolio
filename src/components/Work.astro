@@ -30,15 +30,15 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
 );
 ---
 
-<SectionContainer id="experiencia" class="py-12">
-  <h2 class="text-4xl sm:text-6xl font-bold mt-8 mb-3 flex gap-2">
+<SectionContainer id="experiencia" class="">
+  <h2 class="text-4xl sm:text-6xl font-bold mb-3 flex gap-2">
     Experiencia Laboral
   </h2>
 
   <div class="space-y-12">
     {
       experiences.map((experience: Experience) => (
-        <article class="ml-2 relative pb-8">
+        <article class="ml-2 relative">
           {/* Cabecera Empresa y Cargos */}
           <div class="flex flex-wrap gap-3 items-center mb-2">
             <a
@@ -55,13 +55,13 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
             <div class="flex flex-wrap gap-2">
               {experience.data.position.map((pos: string) => (
                 <Badge>
-                  <span class="text-2xl p-2">{pos}</span>
+                  <span class="text-xs p-2">{pos}</span>
                 </Badge>
               ))}
             </div>
           </div>
 
-          <span class="text-lg text-slate-400 font-medium block mb-4">
+          <span class="text-sm sm:text-lg text-slate-400 font-medium block mb-4">
             {experience.data.starDate} - {experience.data.endDate ?? "Presente"}
           </span>
 
@@ -104,7 +104,7 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
                     class="p-2 flex items-center justify-center"
                     title={toolKey}
                   >
-                    <IconComponent class="w-18 h-18" />
+                    <IconComponent class="w-10 h-10 sm:w-18 sm:h-18" />
                   </div>
                 ) : null;
               })}
