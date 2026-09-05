@@ -7,8 +7,6 @@ icons:
     name: "PHP"
   - id: "sqlserver"
     name: "SQL Server"
-  - id: "postgresql"
-    name: "PostgreSQL"
   - id: "fastapi"
     name: "FastAPI"
   - id: "powerbi"
