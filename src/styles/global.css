@@ -1,0 +1,68 @@
+/* global.css */
+@import "tailwindcss";
+
+p {
+  margin-block: 1lh;
+}
+
+/* Base color on BODY - blend modes composite against this */
+body {
+  background-color: #100e0b;
+}
+
+.aura-bg {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Agrupamos las capas para que queden fijas sin bloquear el scroll */
+.aura-layer-1,
+.aura-layer-2,
+.aura-layer-3,
+.aura-layer-4 {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Layer 1 - screen */
+.aura-layer-1 {
+  background: radial-gradient(ellipse 45% 50% at 35% 40%, rgba(75,85,99,0.6) 0%, transparent 65%);
+  mix-blend-mode: screen;
+  filter: blur(100px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Layer 2 - screen */
+.aura-layer-2 {
+  background: radial-gradient(ellipse 38% 42% at 70% 50%, rgba(55,65,81,0.5) 0%, transparent 60%);
+  mix-blend-mode: screen;
+  filter: blur(75px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Layer 3 - screen */
+.aura-layer-3 {
+  background: radial-gradient(ellipse 28% 32% at 55% 75%, rgba(107,114,128,0.35) 0%, transparent 55%);
+  mix-blend-mode: screen;
+  filter: blur(63px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Layer 4 - screen */
+.aura-layer-4 {
+  background: radial-gradient(ellipse 20% 22% at 20% 25%, rgba(156,163,175,0.25) 0%, transparent 50%);
+  mix-blend-mode: screen;
+  filter: blur(38px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Content wrapper - keep it above the absolute layers */
+.aura-content {
+  position: relative;
+  z-index: 1;
+}
