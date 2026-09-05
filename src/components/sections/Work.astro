@@ -1,14 +1,14 @@
 ---
-import Badge from "../components/Badge.astro";
-import SectionContainer from "../components/SectionContainer.astro";
+import Badge from "../Badge.astro";
+import SectionContainer from "../SectionContainer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-import GitIcon from "../components/icons/GitIcon.astro";
-import SqlServerIcon from "../components/icons/SqlServerIcon.astro";
-import DotnetIcon from "../components/icons/DotnetIcon.astro";
-import GithubIcon from "../components/icons/GithubIcon.astro";
-import MysqlIcon from "../components/icons/MysqlIcon.astro";
-import PowerbiIcon from "../components/icons/PowerbiIcon.astro";
+import GitIcon from "../icons/GitIcon.astro";
+import MicrosoftsqlserverIcon from "../icons/MicrosoftsqlserverIcon.astro";
+import DotnetIcon from "../icons/DotnetIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import MysqlIcon from "../icons/MysqlIcon.astro";
+import PowerbiIcon from "../icons/PowerbiIcon.astro";
 /* import MysqlIcon from '../icons/MysqlIcon.astro';    
 import DotnetIcon from '../icons/DotnetIcon.astro'; */
 
@@ -16,7 +16,7 @@ import DotnetIcon from '../icons/DotnetIcon.astro'; */
 // Mapeo dinámico con tipado explícito
 const ICON_MAP: Record<string, (_props: Record<string, any>) => any> = {
   git: GitIcon,
-  sqlserver: SqlServerIcon,
+  sqlserver: MicrosoftsqlserverIcon,
   dotnet: DotnetIcon,
   github: GithubIcon,
   mysqli: MysqlIcon,
@@ -61,7 +61,7 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
             </div>
           </div>
 
-          <span class="text-sm sm:text-lg text-slate-400 font-medium block mb-4">
+          <span class="text-sm sm:text-lg mt- text-slate-400 font-medium block mb-4">
             {experience.data.starDate} - {experience.data.endDate ?? "Presente"}
           </span>
 
