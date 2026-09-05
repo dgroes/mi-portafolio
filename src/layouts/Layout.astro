@@ -1,23 +1,58 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+import "@fontsource-variable/ibm-plex-sans/wght.css";
+import "@fontsource-variable/google-sans-code/wght.css";
+
+import "@fontsource-variable/playfair-display/wght.css";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Diego Pastén \ DEV</title>
+  </head>
+  <body class="aura-bg">
+    <div class="aura-layer-1"></div>
+    <div class="aura-layer-2"></div>
+    <div class="aura-layer-3"></div>
+    <div class="aura-layer-4"></div>
+
+    <div class="aura-content">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  :root {
+    color-scheme: light dark; /* Por defecto se indica que será de fondo oscuro y texto claro */
+  }
+
+  html {
+    font-family: "Google Sans Code Variable", monospace;
+  }
+
+  h1,
+  h2 {
+    font-family: "Playfair Display Variable", serif;
+  }
+
+  body {
+    /* background-color: #1b1b1b;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png"); */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; */
+  }
 </style>
