@@ -1,37 +1,52 @@
-<footer class="m-4 w-full lg:w-[1040px] mx-auto py-8" id="contacto">
-  <ul
-    class="flex flex-wrap justify-center gap-x-6 gap-y-6 max-w-5xl mx-auto text-gray-200"
-  >
-   <!-- Perfil de LinkedIn -->
-    <li class="flex items-center gap-2">
-      <img src="/icons/linkedin.svg" alt="LinkedIn" class="w-7 h-7" />
-      <a
-        href="https://www.linkedin.com/in/diegopastenuribe/"
-        target="_blank"
-        class="hover:text-emerald-300"
-      >
-        Diego Pásten Uribe
-      </a>
-    </li>
+---
+import GmailIcon from "../components/icons/GmailIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
 
-    <!-- Correo electronico personal -->
-    <li class="flex items-center gap-2">
-      <img src="/icons/gmail.svg" alt="Correo" class="w-6 h-6" />
-      <a href="mailto:diegopasten78@gmail.com" class="hover:text-emerald-300">
-        diegopasten78@gmail.com
-      </a>
-    </li>
+const EMAIL = "diegopasten78@gmail.com";
+---
 
-    <!-- Perfil de GitHub -->
-    <li class="flex items-center gap-2">
-      <img src="/icons/github.svg" alt="Correo" class="w-6 h-6" />
-      <a
-        href="https://github.com/dgroes"
-        target="_blank"
-        class="hover:text-emerald-300"
-      >
-        dgroes
-      </a>
-    </li>
-  </ul>
+<footer class="w-full max-w-[1040px] mx-auto py-8 px-4" id="contacto">
+  <nav aria-label="Enlaces de contacto">
+    <ul class="flex flex-wrap justify-center items-center gap-6 text-gray-200">
+      
+      <!-- Perfil de LinkedIn -->
+      <li>
+        <a
+          href="https://www.linkedin.com/in/diegopastenuribe/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 hover:text-yellow-300 transition-colors"
+        >
+          <LinkedInIcon class="w-8 h-8" />
+          <span>Diego Pásten Uribe</span>
+        </a>
+      </li>
+
+      <!-- Correo electrónico personal -->
+      <li>
+        <a
+          href="mailto:diegopasten78@gmail.com"
+          class="flex items-center gap-2 hover:text-yellow-300 transition-colors"
+        >
+          <GmailIcon class="w-8 h-8" />
+          <span>diegopasten78@gmail.com</span>
+        </a>
+      </li>
+
+      <!-- Perfil de GitHub -->
+      <li>
+        <a
+          href="https://github.com/dgroes"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 hover:text-yellow-300 transition-colors"
+        >
+          <GithubIcon class="w-8 h-8" />
+          <span>dgroes</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
 </footer>
