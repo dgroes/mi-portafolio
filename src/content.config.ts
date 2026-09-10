@@ -18,8 +18,21 @@ const experiencesCollection = defineCollection({
 });
 
 
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/projects" }),
+  schema: z.object({
+    id: z.number(),
+    title: z.string(),
+    status: z.number(),
+    description: z.string(),
+    functionality: z.array(z.string()),
+    tools: z.array(z.string()),
+    github: z.string()
+  })
+})
+
 const technologiesCollection = defineCollection({
-   loader: glob({
+  loader: glob({
     pattern: "**/*.md",
     base: "src/content/technologies"
   }),
@@ -37,4 +50,5 @@ const technologiesCollection = defineCollection({
 export const collections = {
   experiences: experiencesCollection,
   technologies: technologiesCollection,
-};
+  projects: projectsCollection,
+}

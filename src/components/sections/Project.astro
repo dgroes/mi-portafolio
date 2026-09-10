@@ -1,0 +1,40 @@
+---
+import SectionContainer from "../SectionContainer.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+type Project = CollectionEntry<"projects">;
+
+// 1. Obtener y ordenar proyectos por ID (de más reciente a más antiguo o viceversa)
+const projects: Project[] = (await getCollection("projects")).sort(
+  (a: Project, b: Project) => b.data.id - a.data.id,
+);
+---
+
+<SectionContainer id="proyectos" class="">
+
+  <h2 class="text-4xl sm:text-6xl font-bold mb-6">
+    Proyectos
+  </h2>
+
+  { projects.map((project: Project) => (
+  <article
+    class="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl
+         shadow-lg p-6 mb-4">
+    <div>
+      <h1 class="text-3xl font-bold mb-1"> {project.data.title}</h1>
+
+      <p class="text-xl mb-2">{project.data.description}</p>
+
+      <!-- Funionabilidad -->
+      {/* <ul class="grid grid-cols-2 gap-2 my-4">
+        {project.data.functionality.map((func: string) => (
+          <li>
+            <span set:html={func}></span>
+          </li>
+        ))}
+      </ul> */}
+      <a href={project.data.github}>Mas sobre el proyecto</a>
+    </div>
+  </article>
+   ))}
+</SectionContainer>
