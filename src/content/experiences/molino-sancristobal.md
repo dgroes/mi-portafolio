@@ -13,13 +13,10 @@ duties:
   - Automatización de cargas nocturnas y mantenimiento de tareas mediante SQL Server Agent.
   - Desarrollo de proyectos OLAP, jerarquías y medidas en Visual Studio (SSDT).
   - Procesamiento y despliegue de cubos multidimensionales en SSAS para análisis de negocio.
-  - Validación de métricas y requerimientos analíticos junto a usuarios de negocio.
 responsibilities:
   - Creación y mantención de cubos OLAP
   - Administración y optimización de bases de datos
-  - Control de calidad e integridad de datos
   - Soporte y monitoreo de procesos ETL
-  - Levantamiento de requerimientos con el negocio
 tools:
   - "sqlserver"
   - "powerbi"
