@@ -29,7 +29,7 @@ const projects: Project[] = (await getCollection("projects")).sort(
       <!-- Herramientas -->
       <ul class="grid grid-cols-4 gap-4 my-4">
         {project.data.tools.map((too: string) => (
-          <li class="text-xs sm:text-lg font-semibold">
+          <li class="text-xs sm:text-lg font-semibold text-yellow-50 opacity-80">
             <span set:html={too}></span>
           </li>
         ))}
@@ -41,7 +41,7 @@ const projects: Project[] = (await getCollection("projects")).sort(
       href={project.data.github} 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="inline-flex items-center gap-1.5 text-yellow-100 hover:underline hover:text-yellow-200 transition-colors"
+      class="text-sm sm:text-xl inline-flex items-center gap-1.5 text-yellow-100 hover:underline hover:text-yellow-200 transition-colors"
     >
       Más sobre el proyecto
       <ExternallinkIcon class="size-4" />
