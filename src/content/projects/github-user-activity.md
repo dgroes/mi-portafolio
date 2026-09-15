@@ -1,11 +1,14 @@
 ---
 id: 3
-title: "Github User Activity"
+title: "GitHub User Activity"
 status: 1
-description: "Actividad de github por busqueda de usuario utilizando la API Rest de Github"
+description: "Aplicación CLI en Python para consultar la actividad reciente de cualquier perfil de GitHub en tiempo real. Se conecta a la API REST pública para formatear y desplegar eventos como commits, issues y pull requests directamente en la terminal."
 functionality:
-  - Visualización de las distintas actividadess
+  - Consumo e integración directa con la API REST de GitHub
+  - Visualización estructurada de eventos públicos (push, pull requests, issues)
+  - Interfaz de terminal ligera para búsquedas rápidas por nombre de usuario
 tools:
   - Python
-github: "https://github.com/dgroes/github-user-activity/tree/main"
+  - GitHub REST API
+github: "https://github.com/dgroes/github-user-activity"
 ---

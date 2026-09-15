@@ -2,7 +2,7 @@
 id: 1
 title: "Citas Médicas"
 status: 1
-description: "Plataforma web para la gestión integral de citas médicas multi-rol con agenda y reportes clínicos."
+description: "Sistema de gestión médica integral con control de acceso multi-rol (pacientes, médicos y administradores). Permite la programación inteligente de citas en tiempo real, seguimiento de agendas dinámicas y emisión de reportes clínicos detallados."
 functionality:
   - Agenda con búsqueda por disponibilidad y especialidad
   - Calendario dinámico adaptado a cada rol
@@ -11,7 +11,7 @@ functionality:
 tools:
   - Laravel
   - FullCalendar
-  - Tailwind
-  - LaravelSessions
+  - Tailwind CSS
+  - MySQL
 github: "https://github.com/dgroes/cita_medica"
 ---
