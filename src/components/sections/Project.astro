@@ -1,6 +1,7 @@
 ---
 import SectionContainer from "../SectionContainer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import ExternallinkIcon from "../icons/ExternallinkIcon.astro";
 
 type Project = CollectionEntry<"projects">;
 
@@ -28,7 +29,7 @@ const projects: Project[] = (await getCollection("projects")).sort(
       <!-- Herramientas -->
       <ul class="grid grid-cols-4 gap-4 my-4">
         {project.data.tools.map((too: string) => (
-          <li class="text-xs sm:text-lg">
+          <li class="text-xs sm:text-lg font-semibold">
             <span set:html={too}></span>
           </li>
         ))}
@@ -36,7 +37,16 @@ const projects: Project[] = (await getCollection("projects")).sort(
 
       
 
-      <a href={project.data.github} class="text-yellow-100">Mas sobre el proyecto</a>
+     <a 
+      href={project.data.github} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="inline-flex items-center gap-1.5 text-yellow-100 hover:underline hover:text-yellow-200 transition-colors"
+    >
+      Más sobre el proyecto
+      <ExternallinkIcon class="size-4" />
+    </a>
+
     </div>
   </article>
    ))}
