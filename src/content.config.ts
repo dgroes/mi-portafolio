@@ -13,7 +13,7 @@ const experiencesCollection = defineCollection({
     endDate: z.string().optional(),
     duties: z.array(z.string()),
     responsibilities: z.array(z.string()),
-    tools: z.array(z.string()).optional(),
+    tools: z.array(z.string()),
   }),
 });
 

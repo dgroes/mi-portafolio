@@ -25,8 +25,8 @@ responsibilities:
   - Web Testing y Mobile Testing
   - Reacción de defectos.
 tools:
-  - "github"
-  - "git"
-  - "mysql"
-  - "dotnet"
+  - "GitHub"
+  - "Git"
+  - "MySQL"
+  - ".NET"
 ---

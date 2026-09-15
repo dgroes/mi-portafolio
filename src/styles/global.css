@@ -1,13 +1,57 @@
 /* global.css */
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Gambarino-Regular';
+  src: url('/public/font/Gambarino-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Regular';
+  src: url('/public/font/GeneralSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi-Regular';
+  src: url('/public/font/Satoshi-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SplineSans-Regular';
+  src: url('/public/font/SplineSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1, h2, h3, h4, #title {
+  font-family: 'Gambarino-Regular', serif;
+}
+
 p {
   margin-block: 1lh;
+}
+
+html{
+  font-family: 'SplineSans-Regular';
 }
 
 /* Base color on BODY - blend modes composite against this */
 body {
   background-color: #100e0b;
+}
+
+#badge{
+  font-family: 'GeneralSans-Regular';
 }
 
 .aura-bg {

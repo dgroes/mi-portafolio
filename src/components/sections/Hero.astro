@@ -3,11 +3,11 @@ import SectionContainer from "../SectionContainer.astro";
 import Badge from "../Badge.astro";
 ---
 
-<SectionContainer id="hero" class="">
+<SectionContainer id="hero" class="top">
   <div class="flex flex-col gap-y-2">
     <!-- Nombre -->
     <div class="flex items-center gap-x-4 gap-y-2 flex-wrap">
-      <h1 class="text-white text-4xl sm:text-6xl font-bold tracking-tight">
+      <h1 class="text-amber-50 text-4xl sm:text-6xl font-bold tracking-tight">
         Diego Pastén
       </h1>
     </div>
@@ -15,29 +15,29 @@ import Badge from "../Badge.astro";
     <!-- Carrera y Badge (Flex Col en móvil, Flex Row en sm) -->
     <div
       class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mt-1">
-      <span
-        class="text-2xl sm:text-4xl text-yellow-300 font-semibold leading-tight">
+      <span id="title"
+        class="text-2xl sm:text-4xl text-gray-300 font-semibold leading-tight">
         Ingeniero Informático
       </span>
 
-      <a
+      <!-- <a
         href="https://linkedin.com/in/diegopastenuribe"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center hover:scale-105 transition-transform"
       >
         <Badge>
-          <span>Disponible para trabajar</span>
+          <span class="text-xs sm:text-base font-bold p-2" id="badge">Disponible para trabajar</span>
         </Badge>
-      </a>
+      </a> -->
     </div>
   </div>
 
-  <p class="text-xl sm:text-3xl opacity-75 max-w-2xl leading-relaxed">
-    Experiencia en <span class="text-yellow-300/90 font-bold"
+  <p class="text-xl sm:text-3xl opacity-75 max-w-2xl leading-relaxed text-amber-50">
+    Experiencia en <span class="text-zinc-200 font-bold"
       >Desarrollo Web</span>,
-    <span class="text-yellow-300/90 font-bold">Desarrollo BI</span> y <span
-      class="text-yellow-300/90 font-bold">QA</span
+    <span class="text-zinc-200 font-bold"> Desarrollo BI</span> y <span
+      class="text-zinc-200 font-bold">QA</span
     >. Aportando valor con capacidad de análisis y compromiso con la mejora
     continua.
   </p>

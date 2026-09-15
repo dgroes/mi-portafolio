@@ -18,10 +18,10 @@ responsibilities:
   - Administración y optimización de bases de datos
   - Soporte y monitoreo de procesos ETL
 tools:
-  - "sqlserver"
-  - "powerbi"
-  - "dotnet"
-  - "git"
+  - "SQLServer"
+  - "PowerBI"
+  - ".NET"
+  - "Git"
 ---
 
 

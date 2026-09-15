@@ -3,26 +3,6 @@ import Badge from "../Badge.astro";
 import SectionContainer from "../SectionContainer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-import GitIcon from "../icons/GitIcon.astro";
-import MicrosoftsqlserverIcon from "../icons/MicrosoftsqlserverIcon.astro";
-import DotnetIcon from "../icons/DotnetIcon.astro";
-import GithubIcon from "../icons/GithubIcon.astro";
-import MysqlIcon from "../icons/MysqlIcon.astro";
-import PowerbiIcon from "../icons/PowerbiIcon.astro";
-/* import MysqlIcon from '../icons/MysqlIcon.astro';    
-import DotnetIcon from '../icons/DotnetIcon.astro'; */
-
-// Diccionario que vincula la clave del Markdown con el Componente Astro
-// Mapeo dinámico con tipado explícito
-const ICON_MAP: Record<string, (_props: Record<string, any>) => any> = {
-  git: GitIcon,
-  sqlserver: MicrosoftsqlserverIcon,
-  dotnet: DotnetIcon,
-  github: GithubIcon,
-  mysqli: MysqlIcon,
-  powerbi: PowerbiIcon,
-};
-
 type Experience = CollectionEntry<"experiences">;
 
 const experiences: Experience[] = (await getCollection("experiences")).sort(
@@ -31,7 +11,7 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
 ---
 
 <SectionContainer id="experiencia" class="">
-  <h2 class="text-4xl sm:text-6xl font-bold mb-4 flex gap-2">
+  <h2 class="text-4xl sm:text-6xl font-bold mb-4 flex gap-2 text-amber-50">
     Experiencia Laboral
   </h2>
 
@@ -46,8 +26,9 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
               target="_blank"
               rel="noopener noreferrer"
               class="hover:opacity-80 transition-opacity"
+              id="title"
             >
-              <h3 class="text-3xl sm:text-4xl font-semibold text-yellow-400">
+              <h3 class="text-3xl sm:text-4xl font-semibold text-gray-300">
                 {experience.data.company}
               </h3>
             </a>
@@ -55,7 +36,9 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
             <div class="flex flex-wrap gap-2">
               {experience.data.position.map((pos: string) => (
                 <Badge>
-                  <span class="text-xs sm:text-base font-bold p-2">{pos}</span>
+                  <span class="text-xs sm:text-base font-bold p-2" id="badge">
+                    {pos}
+                  </span>
                 </Badge>
               ))}
             </div>
@@ -67,12 +50,10 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
 
           {/* Funciones */}
           <div class="mt-4">
-            <h4 class="text-xl font-semibold text-yellow-200 mb-2">
-              Funciones
-            </h4>
-            <ul class="space-y-2 text-amber-50">
+            <h3 class="text-xl font-semibold text-gray-300 mb-2">Funciones</h3>
+            <ul class="space-y-2 text-amber-50 opacity-75">
               {experience.data.duties.map((duty: string) => (
-                <li class="text-base sm:text-2xl flex gap-x-2 before:content-['—'] before:text-yellow-200">
+                <li class="text-base sm:text-2xl flex gap-x-2 before:content-['—'] before:text-gray-400">
                   <span set:html={duty} />
                 </li>
               ))}
@@ -82,10 +63,10 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
           {/* Responsabilidades */}
           <div id="funciones_herramientas" class="sm:grid sm:grid-cols-2">
             <div class="mt-4">
-              <h4 class="text-xl font-semibold text-yellow-200 mb-2">
+              <h4 class="text-xl font-semibold text-gray-300 mb-2">
                 Responsabilidades
               </h4>
-              <ul class="list-disc list-outside pl-5 space-y-1 text-amber-50">
+              <ul class="list-disc list-outside pl-5 space-y-1 text-amber-50 opacity-75">
                 {experience.data.responsibilities.map((resp: string) => (
                   <li class="text-base sm:text-lg">{resp}</li>
                 ))}
@@ -94,23 +75,14 @@ const experiences: Experience[] = (await getCollection("experiences")).sort(
 
             {/* Herramientas */}
             <div class="mt-4">
-              <h4 class="text-xl font-semibold text-yellow-200 mb-2">
+              <h4 class="text-xl font-semibold text-gray-300 mb-2">
                 Herramientas
               </h4>
-              <div class="flex gap-3">
-                {experience.data.tools?.map((toolKey) => {
-                  const IconComponent = ICON_MAP[toolKey];
-                  return IconComponent ? (
-                    <div
-                      class="p-2 flex items-center justify-center"
-                      title={toolKey}
-                    >
-                      <IconComponent class="w-8 h-8 sm:w-14 sm:h-14" />
-                      {/* {toolKey} */}
-                    </div>
-                  ) : null;
-                })}
-              </div>
+              <ul class="list-disc list-outside pl-5 space-y-1 text-amber-50 opacity-75">
+                {experience.data.tools.map((too: string) => (
+                  <li class="text-base sm:text-lg">{too}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </article>

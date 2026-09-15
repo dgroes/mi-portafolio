@@ -6,6 +6,17 @@ import "@fontsource-variable/ibm-plex-sans/wght.css";
 import "@fontsource-variable/google-sans-code/wght.css";
 
 import "@fontsource-variable/playfair-display/wght.css";
+
+// Supports weights 200-900
+import '@fontsource-variable/source-serif-4/wght.css';
+
+import "@fontsource-variable/doto/wght.css";
+
+// Supports weights 100-700
+import '@fontsource-variable/roboto-mono/wght.css';
+
+// Supports weights 100-900
+import '@fontsource-variable/inter/wght.css';
 ---
 
 <!doctype html>
@@ -25,25 +36,34 @@ import "@fontsource-variable/playfair-display/wght.css";
     <div class="aura-layer-4"></div>
 
     <div class="aura-content">
-      <!-- <Header /> -->
+      <Header />
       <slot />
       <Footer />
     </div>
   </body>
 </html>
 
-<style>
+<style is:global>
   :root {
     color-scheme: light dark; /* Por defecto se indica que será de fondo oscuro y texto claro */
   }
 
   html {
-    font-family: "Google Sans Code Variable", monospace;
-  }
+    /* font-family: "Google Sans Code Variable", monospace; */
 
+
+    /* font-family: 'Inter Variable', sans-serif; */
+
+    /* font-family: monospace; */
+    /* font-family: 'Roboto Mono Variable', monospace; */
+  }
+  
   h1,
-  h2 {
-    font-family: "Playfair Display Variable", serif;
+  h2{
+    /* font-family: "Doto Variable", sans-serif; */
+    /* font-family: "Playfair Display Variable", serif; */
+    /* font-family: "Source Serif 4 Variable", serif; */
+    /* font-family: 'IBM Plex Mono', monospace; */
   }
 
   body {

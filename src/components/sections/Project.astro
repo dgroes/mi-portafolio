@@ -12,7 +12,7 @@ const projects: Project[] = (await getCollection("projects")).sort(
 
 <SectionContainer id="proyectos" class="">
 
-  <h2 class="text-4xl sm:text-6xl font-bold mb-6">
+  <h2 class="text-4xl sm:text-6xl font-bold mb-6 text-amber-50">
     Proyectos
   </h2>
 
@@ -21,9 +21,9 @@ const projects: Project[] = (await getCollection("projects")).sort(
     class="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl
          shadow-lg p-6 mb-4">
     <div>
-      <h1 class="text-2xl sm:text-3xl mb-1 text-yellow-300 font-thin"> {project.data.title}</h1>
+      <h1 class="text-2xl sm:text-3xl mb-1 text-green-300 font-thin"> {project.data.title}</h1>
 
-      <p class="text-sm sm:text-xl mb-2">{project.data.description}</p>
+      <p class="text-sm sm:text-xl mb-2 text-amber-50 opacity-75">{project.data.description}</p>
 
       <!-- Funionabilidad -->
       {/* <ul class="grid grid-cols-2 gap-2 my-4">
@@ -33,7 +33,7 @@ const projects: Project[] = (await getCollection("projects")).sort(
           </li>
         ))}
       </ul> */}
-      <a href={project.data.github}>Mas sobre el proyecto</a>
+      <a href={project.data.github} class="text-yellow-100">Mas sobre el proyecto</a>
     </div>
   </article>
    ))}
